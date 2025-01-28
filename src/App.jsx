@@ -4,15 +4,15 @@ export default function App() {
   return (
     <div className="min-h-screen w-full bg-gradient-to-r from-blue-500 to-purple-600 flex flex-col items-center justify-center text-white p-6">
       {/* Glassmorphism Container */}
-      <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl p-8 max-w-2xl w-full border border-white/10">
+      <h1 className="text-5xl font-bold mb-8 text-center animate-fade-in">
+        Welcome to the React Interview Coding Questions
+      </h1>
+      <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl p-8 max-w-4xl w-full border border-white/10">
         {/* Animated Heading */}
-        <h1 className="text-5xl font-bold mb-8 text-center animate-fade-in">
-          Welcome to the Questions App
-        </h1>
 
         {/* Navigation Links */}
         <nav>
-          <ul className="space-y-6">
+          <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 place-items-center">
             {Array.from({ length: 3 }, (_, index) => (
               <li key={index}>
                 <Link

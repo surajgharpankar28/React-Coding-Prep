@@ -3,6 +3,7 @@ import Home from "./App";
 import Question1 from "./pages/Question_1/App";
 import Question2 from "./pages/Question_2/App";
 import Question3 from "./pages/Question_3/src/App";
+import Footer from "./Footer";
 
 export default function AppRouter() {
   return (
@@ -13,6 +14,7 @@ export default function AppRouter() {
         <Route path="/question-2" element={<Question2 />} />
         <Route path="/question-3" element={<Question3 />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
