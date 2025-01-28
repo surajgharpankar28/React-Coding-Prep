@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./App.css";
+import "/src/App.css";
 
 function App() {
   const [user, setUser] = useState(null); // Initialize with null
