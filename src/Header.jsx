@@ -28,6 +28,16 @@ export default function Header() {
               Github
             </Link>
           </li>
+          <li>
+            <Link
+              target="_blank"
+              to="https://www.linkedin.com/in/surajgharpankar/"
+            >
+              <span className="hover:text-yellow-200 transition duration-300 font-medium text-yellow-400">
+                Suraj Gharpankar
+              </span>
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>
