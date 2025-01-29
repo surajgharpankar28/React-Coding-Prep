@@ -3,7 +3,7 @@ import questionList from "../questionList";
 
 export default function App() {
   return (
-    <div className="min-h-screen w-full bg-gradient-to-r from-blue-500 to-purple-600 flex flex-col items-center justify-center text-white p-6">
+    <div className="min-h-[calc(100vh-6rem)] w-full bg-gradient-to-r from-blue-500 to-purple-600 flex flex-col items-center justify-center text-white p-6">
       {/* Glassmorphism Container */}
 
       <h1 className="text-5xl font-bold mb-8 text-center animate-fade-in">
