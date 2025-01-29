@@ -167,7 +167,7 @@ function App() {
 
         {/* No User Found Message */}
         {!loading && searchInitiated && !user && userName && (
-          <div className="mt-6 text-white">
+          <div className="mt-6 text-yellow-700">
             <p>No user found. Please try another username.</p>
           </div>
         )}
