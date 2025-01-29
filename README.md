@@ -1,10 +1,10 @@
 
-# 🚀 React Coding Interview  Questions
+# 🚀 React Coding Preparation
 
 A beautifully designed **React Coding Interview Preparation** platform that provides common React interview questions with detailed answers. This project is built with **React, React Router, and Tailwind CSS**, featuring a sleek UI with Glassmorphism effects.
 
 ## Checkout Implementation
-Visit here: [**React Coding Question Prep**](https://react-interview-coding-question.vercel.app/)
+Visit here: [**React Coding Question Prep**](https://react-coding-prep.vercel.app/)
 
 ## ✨ Features
 
@@ -25,7 +25,7 @@ Visit here: [**React Coding Question Prep**](https://react-interview-coding-ques
 
 ### 1️⃣ Clone the Repository
 ```sh
-git clone https://github.com/your-username/react-interview-questions.git
+git clone https://github.com/surajgharpankar28/React-Coding-Prep.git
 cd react-interview-questions
 ```
 

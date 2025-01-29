@@ -5,7 +5,7 @@ export default function Header() {
     <header className="w-full bg-gradient-to-r from-blue-600 to-purple-700 shadow-lg border-b border-white/20 py-4 px-8 flex items-center justify-between fixed top-0 left-0 z-50">
       {/* Logo / Title */}
       <h1 className="text-xl font-bold text-white tracking-wide">
-        React Interview Coding Questions
+        React Coding Preparation
       </h1>
 
       {/* Navigation */}
@@ -22,7 +22,7 @@ export default function Header() {
           <li>
             <Link
               target="_blank"
-              to="https://github.com/surajgharpankar28/React-Interview-Coding-Question.git"
+              to="https://github.com/surajgharpankar28/React-Coding-Prep.git"
               className="text-white/80 hover:text-white transition duration-300 font-medium"
             >
               Github
