@@ -7,7 +7,7 @@ export default function App() {
       <h1 className="text-3xl sm:text-5xl font-bold mb-6 sm:mb-8 text-center animate-fade-in">
         Level Up Your React Skills!
       </h1>
-      <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl p-6 sm:p-8 max-w-4xl w-full border border-white/10">
+      <div className="bg-white/10 rounded-2xl shadow-2xl p-6 sm:p-8 max-w-4xl w-full border border-white/10">
         <div className="p-4 sm:p-6">
           <ul className="space-y-3">
             {Object.entries(questionList).map(([id, title]) => (
