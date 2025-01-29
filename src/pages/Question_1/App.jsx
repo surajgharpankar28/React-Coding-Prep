@@ -27,20 +27,19 @@ function App() {
 
       const userDetails = await response.json();
       const user1 = userDetails.items?.[0]; // Optional chaining to prevent errors
+      console.log(user1.url);
 
-      const followerResponse = await fetch(
-        `https://api.github.com/users/${userName}/followers`
-      );
+      const followerResponse = await fetch(user1.url);
       if (!followerResponse.ok) throw new Error("Network response was not ok");
 
       const followerDetails = await followerResponse.json();
-      const user1_follower = followerDetails; // Optional chaining to prevent errors
-
+      const user1_follower = await followerDetails; // Optional chaining to prevent errors
+      console.log("hey", user1_follower);
       if (user1 && user1_follower) {
         setUser(user1);
         setUserFollower(user1_follower);
         console.log("useState", user1); // Log the actual data we just set
-        console.log("followers", userFollower.length); // Log the actual data we just set
+        console.log("followers", userFollower.followers); // Log the actual data we just set
       } else {
         setUser(null); // Clear user if no results found
       }
@@ -104,7 +103,7 @@ function App() {
               <img
                 src={user.avatar_url}
                 alt={user.login}
-                className="w-24 h-24 rounded-full border-4 border-blue-500"
+                className="w-28 h-28 rounded-full border-4 border-blue-500"
               />
 
               {/* User Details */}
@@ -112,6 +111,8 @@ function App() {
                 <h2 className="text-2xl font-bold text-gray-800">
                   {user.login}
                 </h2>
+              </div>
+              <div className="text-left">
                 <div className="mt-4 grid grid-cols-2 gap-4 text-gray-700">
                   <p>
                     <strong>ID:</strong> {user.id}
@@ -120,7 +121,36 @@ function App() {
                     <strong>Type:</strong> {user.type}
                   </p>
                   <p>
-                    <strong>Followers:</strong> {userFollower.length || "N/A"}
+                    <strong>Followers:</strong>{" "}
+                    {userFollower.followers || "N/A"}
+                  </p>
+                  <p>
+                    <strong>Company:</strong> {userFollower.company || "N/A"}
+                  </p>
+                  <p>
+                    <strong>Location:</strong> {userFollower.location || "N/A"}
+                  </p>
+                  <p>
+                    <strong>Twitter Username: </strong>
+                    {userFollower.twitter_username ? (
+                      <a
+                        href={`https://twitter.com/${userFollower.twitter_username}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {userFollower.twitter_username}
+                      </a>
+                    ) : (
+                      "N/A"
+                    )}
+                  </p>
+                  <p>
+                    <strong>Public Repos:</strong>{" "}
+                    {userFollower.public_repos || "N/A"}
+                  </p>
+                  <p>
+                    <strong>Hireable:</strong>{" "}
+                    {userFollower.hireable ? "Yes" : "No"}
                   </p>
                 </div>
               </div>
