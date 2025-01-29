@@ -8,9 +8,7 @@ const Footer = () => {
           {/* Brand and Copyright */}
           <div className="text-white text-center md:text-left text-sm">
             © {new Date().getFullYear()}{" "}
-            <span className="font-bold text-yellow-400">
-              React Interview Coding Question
-            </span>
+            <span className="font-bold text-yellow-400">React Coding Prep</span>
             . All rights reserved.
           </div>
 
