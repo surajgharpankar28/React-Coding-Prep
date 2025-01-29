@@ -1,31 +1,36 @@
 import { Link } from "react-router-dom";
+import questionList from "../questionList";
 
 export default function App() {
   return (
     <div className="min-h-screen w-full bg-gradient-to-r from-blue-500 to-purple-600 flex flex-col items-center justify-center text-white p-6">
       {/* Glassmorphism Container */}
+
       <h1 className="text-5xl font-bold mb-8 text-center animate-fade-in">
-        Welcome to the React Interview Coding Questions
+        Level Up Your React Skills!
       </h1>
       <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl p-8 max-w-4xl w-full border border-white/10">
         {/* Animated Heading */}
 
         {/* Navigation Links */}
-        <nav>
-          <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 place-items-center">
-            {Array.from({ length: 3 }, (_, index) => (
-              <li key={index}>
+        <div className="p-6">
+          {/* <h1 className="text-2xl font-bold mb-4 text-white">Question List</h1> */}
+          <ul className="space-y-3">
+            {Object.entries(questionList).map(([id, title]) => (
+              <li key={id}>
                 <Link
                   target="_blank"
-                  to={`/question-${index + 1}`}
-                  className="block w-full text-center px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-semibold rounded-xl shadow-lg hover:bg-white/30 transition duration-300 transform hover:scale-105 hover:shadow-xl"
+                  to={`/question-${id}-${title
+                    .toLowerCase()
+                    .replace(/\s+/g, "-")}`}
+                  className="block w-full text-left px-6 py-3 bg-white/20 backdrop-blur-sm text-white font-semibold rounded-lg shadow-lg hover:bg-white/30 transition duration-300 transform hover:scale-105 hover:shadow-xl"
                 >
-                  Question {index + 1}
+                  {id} - {title}
                 </Link>
               </li>
             ))}
           </ul>
-        </nav>
+        </div>
       </div>
     </div>
   );
