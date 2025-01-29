@@ -2,58 +2,61 @@ import { useEffect, useState } from "react";
 import "/src/App.css";
 
 function App() {
-  const [user, setUser] = useState(null); // Initialize with null
+  const [user, setUser] = useState(null);
   const [userName, setUserName] = useState("");
-  const [userFollower, setUserFollower] = useState("");
+  const [userDetails, setUserDetails] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [searched, setSearched] = useState(false); // Track if a search has been performed
+  const [searchInitiated, setSearchInitiated] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Btn Clicked");
     setLoading(true);
-    setSearched(true); // Set searched to true when the search is initiated
+    setSearchInitiated(true);
     if (userName) {
-      fetchData(userName);
+      fetchUserData(userName);
     }
   };
 
-  const fetchData = async (userName) => {
+  const fetchUserData = async (userName) => {
     try {
       const response = await fetch(
         `https://api.github.com/search/users?q=${userName}`
       );
       if (!response.ok) throw new Error("Network response was not ok");
 
-      const userDetails = await response.json();
-      const user1 = userDetails.items?.[0]; // Optional chaining to prevent errors
-      console.log(user1.url);
+      const { items } = await response.json();
+      const selectedUser = items?.[0];
 
-      const followerResponse = await fetch(user1.url);
-      if (!followerResponse.ok) throw new Error("Network response was not ok");
+      if (selectedUser) {
+        const followerResponse = await fetch(selectedUser.url);
+        if (!followerResponse.ok)
+          throw new Error("Network response was not ok");
 
-      const followerDetails = await followerResponse.json();
-      const user1_follower = await followerDetails; // Optional chaining to prevent errors
-      console.log("hey", user1_follower);
-      if (user1 && user1_follower) {
-        setUser(user1);
-        setUserFollower(user1_follower);
-        console.log("useState", user1); // Log the actual data we just set
-        console.log("followers", userFollower.followers); // Log the actual data we just set
+        const followerData = await followerResponse.json();
+        setUser(selectedUser);
+        setUserDetails(followerData);
       } else {
-        setUser(null); // Clear user if no results found
+        setUser(null);
       }
     } catch (error) {
       console.error("Error fetching user:", error);
-      setUser(null); // Clear user on error
+      setUser(null);
     } finally {
-      setLoading(false); // Set loading to false when the search completes
+      setLoading(false);
     }
   };
 
+  const handleClear = () => {
+    setUserName("");
+    setUser(null);
+    setUserDetails(null);
+    setSearchInitiated(false);
+  };
+
   useEffect(() => {
-    // fetchData("surajgharpankar28"); // Fetch initial data on mount
-  }, []); // Empty dependency array means runs once on mount
+    // Optional: Uncomment to fetch initial data on mount
+    // fetchUserData("surajgharpankar28");
+  }, []);
 
   return (
     <div className="min-h-[calc(100vh-10rem)] bg-gray-100 py-8 mt-14 ">
@@ -84,6 +87,13 @@ function App() {
               >
                 Search
               </button>
+              <button
+                type="button"
+                onClick={handleClear}
+                className="px-4 py-2 bg-gray-400 text-white rounded-lg hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500"
+              >
+                Clear
+              </button>
             </div>
           </form>
         </div>
@@ -96,7 +106,7 @@ function App() {
         )}
 
         {/* User Card */}
-        {!loading && user && (
+        {!loading && user && userDetails && (
           <div className="mt-8 bg-white p-6 rounded-lg shadow-md">
             <div className="flex flex-col items-center space-y-4">
               {/* Avatar Section */}
@@ -121,24 +131,23 @@ function App() {
                     <strong>Type:</strong> {user.type}
                   </p>
                   <p>
-                    <strong>Followers:</strong>{" "}
-                    {userFollower.followers || "N/A"}
+                    <strong>Followers:</strong> {userDetails.followers || "N/A"}
                   </p>
                   <p>
-                    <strong>Company:</strong> {userFollower.company || "N/A"}
+                    <strong>Company:</strong> {userDetails.company || "N/A"}
                   </p>
                   <p>
-                    <strong>Location:</strong> {userFollower.location || "N/A"}
+                    <strong>Location:</strong> {userDetails.location || "N/A"}
                   </p>
                   <p>
                     <strong>Twitter Username: </strong>
-                    {userFollower.twitter_username ? (
+                    {userDetails.twitter_username ? (
                       <a
-                        href={`https://twitter.com/${userFollower.twitter_username}`}
+                        href={`https://twitter.com/${userDetails.twitter_username}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        {userFollower.twitter_username}
+                        {userDetails.twitter_username}
                       </a>
                     ) : (
                       "N/A"
@@ -146,11 +155,11 @@ function App() {
                   </p>
                   <p>
                     <strong>Public Repos:</strong>{" "}
-                    {userFollower.public_repos || "N/A"}
+                    {userDetails.public_repos || "N/A"}
                   </p>
                   <p>
                     <strong>Hireable:</strong>{" "}
-                    {userFollower.hireable ? "Yes" : "No"}
+                    {userDetails.hireable ? "Yes" : "No"}
                   </p>
                 </div>
               </div>
@@ -171,7 +180,7 @@ function App() {
         )}
 
         {/* No User Found Message */}
-        {!loading && searched && !user && userName && (
+        {!loading && searchInitiated && !user && userName && (
           <div className="mt-8 text-center text-gray-700">
             <p>No user found. Please try another username.</p>
           </div>
