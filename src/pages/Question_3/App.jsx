@@ -132,7 +132,11 @@ function App() {
             progress === 100 ? "green-600" : "gray-800"
           }`}
         >
-          Strength: <span className="font-bold">{strengthLevel}</span>
+          {passwordInput.length > 0 && (
+            <p>
+              Strength: <span className="font-bold">{strengthLevel}</span>
+            </p>
+          )}
         </p>
 
         {/* Password Strength Checklist */}
