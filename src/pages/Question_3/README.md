@@ -18,13 +18,3 @@ Create a **Password Strength Checker** component that:
 
 **What to Submit:**  
 Your React component code (including styles).  
-
----
-
-Once you share your solution, I’ll evaluate it for:  
-- Real-time validation accuracy  
-- State management for password criteria  
-- Dynamic UI feedback  
-- Code structure and best practices  
-
-Good luck! 🚀
