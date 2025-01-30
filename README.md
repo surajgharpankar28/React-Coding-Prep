@@ -79,4 +79,4 @@ This project is open-source and available under the **MIT License**.
 
 ---
 
-**💡 Built with 💙 by [Suraj Gharpankar](https://github.com/surajgharpankar28).** 🚀
+**💡 Built with 💙 by [Suraj Gharpankar](https://www.linkedin.com/in/surajgharpankar/).** 🚀
