@@ -18,12 +18,3 @@ Create an **Infinite Scroll Component** that:
 Your React component code (including styles if needed).  
 
 ---
-
-Once you share your solution, I’ll evaluate it for:  
-- Scroll event throttling/debounce implementation.  
-- Proper pagination management.  
-- API error/rate limit handling.  
-- Memory leak prevention (abort pending requests on unmount).  
-- UI/UX polish (loading states, smooth scrolling).  
-
-Good luck! 🚀
