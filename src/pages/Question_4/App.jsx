@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect, useRef } from "react";
 
 const App = () => {
@@ -15,6 +14,7 @@ const App = () => {
     if (loading || !hasMore) return;
     setLoading(true);
     try {
+      console.log("Fetching issues...");
       const response = await fetch(
         `https://api.github.com/repos/facebook/react/issues?page=${page}&per_page=20`
       );
@@ -31,13 +31,13 @@ const App = () => {
         setRepoName(repoFullName);
       } else {
         console.warn("repository_url is missing or data is empty.");
-        setRepoName(""); // or handle it accordingly
+        setRepoName("");
       }
 
       setIssues((prev) => [...prev, ...data]);
 
       if (data.length === 0) {
-        setHasMore(false); // Stop fetching when no more data is available
+        setHasMore(false);
       }
     } catch (err) {
       setError(err.message);
@@ -53,7 +53,7 @@ const App = () => {
   const isNearBottom = () => {
     if (!tableRef.current) return false;
     const { scrollTop, scrollHeight, clientHeight } = tableRef.current;
-    return scrollHeight - scrollTop - clientHeight < 100; // 100px threshold
+    return scrollHeight - scrollTop - clientHeight < 100;
   };
 
   const handleScroll = () => {
@@ -61,40 +61,41 @@ const App = () => {
       clearTimeout(debounceTimeout.current);
       debounceTimeout.current = setTimeout(() => {
         setPage((prev) => prev + 1);
-      }, 500); // 500ms debounce
+      }, 500);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-      <div className="max-w-7xl w-full p-6 bg-white shadow-lg rounded-2xl">
-        <h2 className="text-2xl font-semibold text-gray-800 text-center mb-6">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-2 sm:px-4">
+      <div className="w-full max-w-5xl p-4 sm:p-6 bg-white shadow-lg rounded-2xl">
+        <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 text-center mb-4 sm:mb-6">
           🚀 GitHub Issues Infinite Scroll (Debounced)
         </h2>
-        {/* Display the repository name */}
-        <h1 className="text-3xl font-bold text-center text-blue-600 mb-4">
+        <h1 className="text-lg sm:text-3xl font-bold text-center text-blue-600 mb-3 sm:mb-4">
           {repoName || "Loading..."}
         </h1>
 
         <div
-          className="overflow-x-auto max-h-[500px] overflow-y-auto"
+          className="overflow-x-auto max-h-[500px] overflow-y-auto border rounded-lg"
           onScroll={handleScroll}
           ref={tableRef}
         >
-          <table className="min-w-full border border-gray-300 text-sm">
+          <table className="w-full border-collapse text-xs sm:text-sm">
             <thead className="bg-blue-600 text-white">
               <tr>
-                <th className="px-4 py-2">Title</th>
-                <th className="px-4 py-2">Author</th>
-                <th className="px-4 py-2">Labels</th>
+                <th className="px-2 sm:px-4 py-2">#</th>
+                <th className="px-2 sm:px-4 py-2">Title</th>
+                <th className="px-2 sm:px-4 py-2">Author</th>
+                <th className="px-2 sm:px-4 py-2">Labels</th>
               </tr>
             </thead>
             <tbody>
-              {issues.map((item) => (
+              {issues.map((item, index) => (
                 <tr key={item.id} className="border-t hover:bg-gray-100">
-                  <td className="px-4 py-2">{item.title}</td>
-                  <td className="px-4 py-2">{item.user.login}</td>
-                  <td className="px-4 py-2">
+                  <td className="px-2 sm:px-4 py-2 text-center">{index + 1}</td>
+                  <td className="px-2 sm:px-4 py-2">{item.title}</td>
+                  <td className="px-2 sm:px-4 py-2">{item.user.login}</td>
+                  <td className="px-2 sm:px-4 py-2">
                     {item.labels.length
                       ? item.labels.map((label) => label.name).join(", ")
                       : "No Labels"}
