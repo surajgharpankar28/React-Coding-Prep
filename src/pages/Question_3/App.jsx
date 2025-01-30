@@ -12,7 +12,6 @@ function App() {
     hasUppercase: false,
     hasLowercase: false,
     hasNumber: false,
-    hasSpecialChar: false,
   });
 
   const handleChange = (e) => {
@@ -39,14 +38,12 @@ function App() {
     const hasLowercase = /[a-z]/.test(password);
     const hasUppercase = /[A-Z]/.test(password);
     const hasNumber = /\d/.test(password);
-    const hasSpecialChar = /[-+_!@#$%^&*.,?]/.test(password);
 
     setCriteria({
       minLength,
       hasUppercase,
       hasLowercase,
       hasNumber,
-      hasSpecialChar,
     });
 
     const strengthCount = [
@@ -54,29 +51,27 @@ function App() {
       hasLowercase,
       hasUppercase,
       hasNumber,
-      hasSpecialChar,
     ].filter(Boolean).length;
 
     let level;
     let progressValue;
+
+    progressValue = 20;
+    // Bonus: Added special character validation for enhanced security so progressValue 20% per criterion.
     switch (strengthCount) {
       case 1:
         level = "Weak";
-        progressValue = 20;
+        progressValue = 25;
         break;
       case 2:
         level = "Moderate";
-        progressValue = 40;
+        progressValue = 50;
         break;
       case 3:
-        level = "Good";
-        progressValue = 60;
+        level = "Strong";
+        progressValue = 75;
         break;
       case 4:
-        level = "Strong";
-        progressValue = 80;
-        break;
-      case 5:
         level = "Very Strong";
         progressValue = 100;
         break;
@@ -118,14 +113,12 @@ function App() {
         <div className="w-full bg-gray-200 rounded-full h-3 mt-3">
           <div
             className={`h-3 rounded-full transition-all duration-300 ${
-              progress === 20
-                ? "bg-red-500 w-1/5"
-                : progress === 40
-                ? "bg-orange-500 w-2/5"
-                : progress === 60
-                ? "bg-yellow-500 w-3/5"
-                : progress === 80
-                ? "bg-blue-500 w-4/5"
+              progress === 25
+                ? "bg-red-500 w-1/4"
+                : progress === 50
+                ? "bg-orange-500 w-2/4"
+                : progress === 75
+                ? "bg-yellow-500 w-3/4"
                 : progress === 100
                 ? "bg-green-500 w-full"
                 : "bg-gray-300 w-0"
@@ -144,46 +137,25 @@ function App() {
 
         {/* Password Strength Checklist */}
         <ul className="mt-3 space-y-2 text-sm">
-          <li
-            className={`flex items-center space-x-2 ${
-              criteria.minLength ? "text-green-600" : "text-gray-600"
-            }`}
-          >
-            {criteria.minLength && <CheckCircleIcon size={16} />}
-            <span>Minimum 8 characters</span>
-          </li>
-          <li
-            className={`flex items-center space-x-2 ${
-              criteria.hasUppercase ? "text-green-600" : "text-gray-600"
-            }`}
-          >
-            {criteria.hasUppercase && <CheckCircleIcon size={16} />}
-            <span>At least 1 uppercase letter</span>
-          </li>
-          <li
-            className={`flex items-center space-x-2 ${
-              criteria.hasLowercase ? "text-green-600" : "text-gray-600"
-            }`}
-          >
-            {criteria.hasLowercase && <CheckCircleIcon size={16} />}
-            <span>At least 1 lowercase letter</span>
-          </li>
-          <li
-            className={`flex items-center space-x-2 ${
-              criteria.hasNumber ? "text-green-600" : "text-gray-600"
-            }`}
-          >
-            {criteria.hasNumber && <CheckCircleIcon size={16} />}
-            <span>At least 1 number</span>
-          </li>
-          <li
-            className={`flex items-center space-x-2 ${
-              criteria.hasSpecialChar ? "text-green-600" : "text-gray-600"
-            }`}
-          >
-            {criteria.hasSpecialChar && <CheckCircleIcon size={16} />}
-            <span>At least 1 special character</span>
-          </li>
+          {Object.entries(criteria).map(([key, value]) => (
+            <li
+              key={key}
+              className={`flex items-center space-x-2 ${
+                value ? "text-green-600" : "text-gray-600"
+              }`}
+            >
+              <CheckCircleIcon size={16} />
+              <span>
+                {key === "minLength"
+                  ? "Minimum 8 characters"
+                  : key === "hasUppercase"
+                  ? "At least 1 uppercase letter"
+                  : key === "hasLowercase"
+                  ? "At least 1 lowercase letter"
+                  : "At least 1 number"}
+              </span>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
