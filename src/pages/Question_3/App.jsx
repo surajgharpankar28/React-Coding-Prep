@@ -86,7 +86,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+    <div className="min-h-[calc(100vh-6rem)] flex items-center justify-center bg-gray-100 px-4">
       <div className="max-w-md w-full p-6 bg-white shadow-lg rounded-2xl">
         <h2 className="text-xl font-semibold text-gray-800 text-center mb-4">
           🔐 Password Strength Checker

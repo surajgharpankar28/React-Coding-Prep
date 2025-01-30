@@ -63,7 +63,7 @@ const App = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-4">
+    <div className="min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center bg-gray-100 px-4">
       <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
         <h1 className="text-2xl font-semibold text-gray-800 text-center mb-4">
           To-Do List
