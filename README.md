@@ -1,32 +1,21 @@
+# 🚀 React Interview Questions
 
-# 🚀 React Coding Preparation
+**Checkout this repo** for daily React interview questions! I update this repo with **one new question and its solution every day**. Perfect for sharpening your React skills!
 
-A beautifully designed **React Coding Interview Preparation** platform that provides common React interview questions with detailed answers. This project is built with **React, React Router, and Tailwind CSS**, featuring a sleek UI with Glassmorphism effects.
-
-## Checkout Implementation
 Visit here: [**React Coding Question Prep**](https://react-coding-prep.vercel.app/)
 
-## ✨ Features
 
-- 📌 **List of Common React Questions**
-- 🔗 **Dynamic Routing** (`/question-{id}-{title}`)
-- 🎨 **Modern UI with Glassmorphism**
-- 📱 **Fully Responsive Design**
-- ⚡ **Fast Navigation with React Router**
-- 🛠 **Easily Extendable & Scalable**
+## 🌟 Features
+- **Daily Questions:** Fresh React interview questions added daily.
+- **Detailed Solutions:** Each question comes with a complete solution.
+- **Interactive UI:** Built with React, React Router, and Tailwind CSS.
 
-## 🛠 Tech Stack
+## 📥 Get Started
 
-- **Frontend**: React, React Router, Tailwind CSS
-- **Build Tool**: Vite
-- **Deployment**: Vercel
-
-## 🚀 Getting Started
-
-### 1️⃣ Clone the Repository
+### 1️⃣ Clone the Repo
 ```sh
 git clone https://github.com/surajgharpankar28/React-Coding-Prep.git
-cd react-interview-questions
+cd react-coding-prep
 ```
 
 ### 2️⃣ Install Dependencies
@@ -34,49 +23,25 @@ cd react-interview-questions
 npm install
 ```
 
-### 3️⃣ Run the Development Server
+### 3️⃣ Start the Dev Server
 ```sh
 npm run dev
 ```
 
-The app will be available at **http://localhost:5173/**.
+Access the app at **http://localhost:5173/**.
 
-## 📁 Folder Structure
-
+## 🗂 Folder Structure
 ```
 📂 src
- ├── 📂 components      # Reusable components
- ├── 📂 pages           # Question-specific pages
- ├── 📜 App.jsx         # Main app file
- ├── 📜 router.js       # Dynamic routing logic
- ├── 📜 questionList.js # List of React interview questions
- ├── 📜 Header.jsx      # Global header
- ├── 📜 Footer.jsx      # Footer component
+ ├── 📂 components    # Reusable components
+ ├── 📂 pages         # Individual question pages
+ ├── 📜 App.jsx       # Main app file
+ ├── 📜 router.js     # Dynamic routing
+ ├── 📜 questionList.js # Questions list
 ```
 
-## 🛠 Adding a New Question
+## 🌱 Contribute
+Got a question to add? Open an issue or pull request!
 
-1. Open `questionList.js` and **add your new question**:
-   ```js
-   const questionList = {
-       11: "What is React Context?",
-   };
-   export default questionList;
-   ```
-2. Create a new question page inside `/src/pages/Question_11/App.jsx`
-3. The new question will automatically be accessible at:
-   ```
-   /question-11-what-is-react-context
-   ```
-
-## 📢 Contributing
-
-Want to contribute? Feel free to **open an issue** or submit a **pull request**.
-
-## 📜 License
-
-This project is open-source and available under the **MIT License**.
-
----
-
-**💡 Built with 💙 by [Suraj Gharpankar](https://www.linkedin.com/in/surajgharpankar/).** 🚀
+**Follow for daily React challenges!**  
+Built with 💙 by [Suraj Gharpankar](https://www.linkedin.com/in/surajgharpankar/).
