@@ -35,42 +35,51 @@ const CartSidebar = ({
       {cartItems.length > 0 ? (
         <div className="space-y-4 overflow-y-auto max-h-[70vh]">
           {cartItems.map((item) => (
-            <div key={item.id} className="flex items-center border-b pb-2">
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-12 h-12 object-contain mr-3"
-              />
-              <div className="flex-1">
-                <h3 className="text-sm font-semibold line-clamp-1">
-                  {item.title}
-                </h3>
-                <p className=" font-bold">
-                  <span className="text-blue-600">${item.price}</span>
-                </p>
+            <>
+              <div className=" border-b pb-2">
+                <div key={item.id} className="flex items-center">
+                  <img
+                    loading="lazy"
+                    src={item.image}
+                    alt={item.title}
+                    className="w-12 h-12 object-contain mr-3"
+                  />
+                  <div className="flex-1">
+                    <h3 className="text-sm font-semibold line-clamp-1">
+                      {item.title}
+                    </h3>
+                    <p className=" font-bold">
+                      <span className="text-blue-600">${item.price}</span>
+                    </p>
+                  </div>
+                  <div className="flex items-center space-x-2 mt-1">
+                    <button
+                      onClick={() => updateQuantity(item.id, "decrease")}
+                      className="px-2 py-1 bg-gray-200 rounded-md hover:bg-gray-300"
+                    >
+                      -
+                    </button>
+                    <span className="text-lg font-semibold">
+                      {item.quantity}
+                    </span>
+                    <button
+                      onClick={() => updateQuantity(item.id, "increase")}
+                      className="px-2 py-1 bg-gray-200 rounded-md hover:bg-gray-300"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+                <div className="flex justify-end pr-3">
+                  <button
+                    onClick={() => removeFromCart(item.id)}
+                    className="text-red-500 text-sm cursor-pointer"
+                  >
+                    Remove
+                  </button>
+                </div>
               </div>
-              <div className="flex items-center space-x-2 mt-1">
-                <button
-                  onClick={() => updateQuantity(item.id, "decrease")}
-                  className="px-2 py-1 bg-gray-200 rounded-md hover:bg-gray-300"
-                >
-                  -
-                </button>
-                <span className="text-lg font-semibold">{item.quantity}</span>
-                <button
-                  onClick={() => updateQuantity(item.id, "increase")}
-                  className="px-2 py-1 bg-gray-200 rounded-md hover:bg-gray-300"
-                >
-                  +
-                </button>
-              </div>
-              <button
-                onClick={() => removeFromCart(item.id)}
-                className="text-red-500 text-sm"
-              >
-                Remove
-              </button>
-            </div>
+            </>
           ))}
         </div>
       ) : (
