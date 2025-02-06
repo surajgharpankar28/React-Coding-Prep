@@ -1,27 +1,20 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setCurrentStep,
+  setLoading,
+  setFormData,
+  setError,
+  setSuccess,
+  resetForm,
+} from "./formSlice";
 
 const App = () => {
-  const [currentStep, setCurrentStep] = useState(1);
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const [formData, setFormData] = useState(() => {
-    const savedForm = localStorage.getItem("userForm");
-    return savedForm
-      ? JSON.parse(savedForm)
-      : {
-          name: "",
-          email: "",
-          phone: "",
-          flatNo: "",
-          streetArea: "",
-          city: "",
-          state: "",
-          zip: "",
-        };
-  });
+  const dispatch = useDispatch();
+  const { currentStep, formData, loading, error, success } = useSelector(
+    (state) => state.form
+  );
 
   const steps = {
     1: "Personal Details",
@@ -37,10 +30,8 @@ const App = () => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-
-    // Set loading to true to start showing loading animation
-    setLoading(true);
+    //showing loading animation
+    dispatch(setLoading(true));
 
     // Simulate a mock API submission (e.g., API request with setTimeout)
     setTimeout(() => {
@@ -62,46 +53,57 @@ const App = () => {
         console.error("Error saving to localStorage:", error);
       }
 
-      // Reset form data after submission
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        flatNo: "",
-        streetArea: "",
-        city: "",
-        state: "",
-        zip: "",
-      });
+      dispatch(resetForm());
+      dispatch(setLoading(false));
 
-      // Reset step to 1
-      setCurrentStep(1);
-
-      // Set loading to false after mock submission is complete
-      setLoading(false);
-
-      // Show success message
       alert("Form submitted successfully!");
     }, 1500); // Simulate an API delay of 2 seconds
   };
 
   const validateSteps = (e) => {
+    if (currentStep === 2) {
+      if (!formData.flatNo.trim()) {
+        dispatch(setError("Flat No. is required"));
+        return;
+      }
+      if (!formData.streetArea.trim()) {
+        dispatch(setError("Area is required"));
+        return;
+      }
+      if (!formData.city.trim()) {
+        dispatch(setError("City is required"));
+        return;
+      }
+      if (!formData.state.trim()) {
+        dispatch(setError("State is required"));
+        return;
+      }
+    }
+
     if (currentStep === 1) {
+      if (!formData.name.trim()) {
+        dispatch(setError("Name is required"));
+        return;
+      }
+
       if (emailRegex.test(formData.email) && phoneRegex.test(formData.phone)) {
-        setCurrentStep((prev) => Math.min(prev + 1, totalSteps));
-        setError(""); // Clear any existing error
+        dispatch(setCurrentStep(Math.min(currentStep + 1, totalSteps)));
+        dispatch(setError(""));
       } else {
-        setError(
-          "Please enter a valid email and phone number without country code. "
+        dispatch(
+          setError(
+            "Please enter a valid email and phone number without country code. "
+          )
         );
       }
     }
+
     if (currentStep === 2) {
       if (zipCodeRegex.test(formData.zip)) {
-        setCurrentStep((prev) => Math.min(prev + 1, totalSteps));
-        setError("");
+        dispatch(setCurrentStep(Math.min(currentStep + 1, totalSteps)));
+        dispatch(setError(""));
       } else {
-        setError("Please enter a valid ZIP code. ");
+        dispatch(setError("Please enter a valid ZIP code. "));
       }
     }
     if (currentStep === totalSteps) {
@@ -138,7 +140,7 @@ const App = () => {
                     placeholder="Enter your name"
                     value={formData.name}
                     onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
+                      dispatch(setFormData({ name: e.target.value }))
                     }
                   />
                 </div>
@@ -157,7 +159,7 @@ const App = () => {
                     placeholder="Enter your email"
                     value={formData.email}
                     onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
+                      dispatch(setFormData({ email: e.target.value }))
                     }
                   />
                 </div>
@@ -176,7 +178,7 @@ const App = () => {
                     placeholder="Enter your phone number"
                     value={formData.phone}
                     onChange={(e) =>
-                      setFormData({ ...formData, phone: e.target.value })
+                      dispatch(setFormData({ phone: e.target.value }))
                     }
                   />
                 </div>
@@ -199,7 +201,7 @@ const App = () => {
                     placeholder="Enter flat/apartment number"
                     value={formData.flatNo}
                     onChange={(e) =>
-                      setFormData({ ...formData, flatNo: e.target.value })
+                      dispatch(setFormData({ flatNo: e.target.value }))
                     }
                   />
                 </div>
@@ -214,11 +216,11 @@ const App = () => {
                   <textarea
                     id="streetArea"
                     className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-                    placeholder="Enter street and area"
+                    placeholder="Enter area"
                     rows="3"
                     value={formData.streetArea}
                     onChange={(e) =>
-                      setFormData({ ...formData, streetArea: e.target.value })
+                      dispatch(setFormData({ streetArea: e.target.value }))
                     }
                   />
                 </div>
@@ -233,11 +235,11 @@ const App = () => {
                   <input
                     id="city"
                     className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-                    placeholder="Enter street and area"
+                    placeholder="Enter City"
                     rows="3"
                     value={formData.city}
                     onChange={(e) =>
-                      setFormData({ ...formData, city: e.target.value })
+                      dispatch(setFormData({ city: e.target.value }))
                     }
                   />
                 </div>
@@ -252,11 +254,11 @@ const App = () => {
                   <input
                     id="state"
                     className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-                    placeholder="Enter street and area"
+                    placeholder="Enter State"
                     rows="3"
                     value={formData.state}
                     onChange={(e) =>
-                      setFormData({ ...formData, state: e.target.value })
+                      dispatch(setFormData({ state: e.target.value }))
                     }
                   />
                 </div>
@@ -275,7 +277,7 @@ const App = () => {
                     placeholder="Enter ZIP code"
                     value={formData.zip}
                     onChange={(e) =>
-                      setFormData({ ...formData, zip: e.target.value })
+                      dispatch(setFormData({ zip: e.target.value }))
                     }
                   />
                 </div>
@@ -302,16 +304,6 @@ const App = () => {
                     <p>
                       <strong>Phone:</strong> {formData.phone}
                     </p>
-                    {formData.dob && (
-                      <p>
-                        <strong>Date of Birth:</strong> {formData.dob}
-                      </p>
-                    )}
-                    {formData.gender && (
-                      <p>
-                        <strong>Gender:</strong> {formData.gender}
-                      </p>
-                    )}
                   </div>
 
                   {/* Address Details */}
@@ -346,8 +338,8 @@ const App = () => {
           <div className="flex justify-center items-center space-x-6 mt-6">
             <button
               onClick={() => {
-                setCurrentStep((prev) => Math.max(prev - 1, 1));
-                setError("");
+                dispatch(setCurrentStep(Math.max(currentStep - 1, 1)));
+                dispatch(setError(""));
               }}
               disabled={currentStep === 1}
               className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg shadow-md hover:bg-gray-400 disabled:opacity-50 disabled:cursor-not-allowed"

@@ -12,6 +12,10 @@ const initialState = {
     city: "",
     state: "",
     zip: "",
+    // Merge with localStorage data if available
+    ...(typeof window !== "undefined"
+      ? JSON.parse(localStorage.getItem("userForm") || "{}")
+      : {}),
   },
   error: "",
   success: "",
@@ -37,7 +41,16 @@ const formSlice = createSlice({
       state.success = action.payload;
     },
     resetForm: (state) => {
-      state.formData = initialState.formData;
+      state.formData = {
+        name: "",
+        email: "",
+        phone: "",
+        flatNo: "",
+        streetArea: "",
+        city: "",
+        state: "",
+        zip: "",
+      };
       state.currentStep = 1;
       state.error = "";
       state.success = "";
