@@ -1,19 +1,32 @@
 import { useEffect, useState } from "react";
-import { SearchIcon } from "lucide-react";
+import { Heart, SearchIcon } from "lucide-react";
 
 const App = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [allCategories, setAllCategories] = useState([]);
   const [category, setCategory] = useState("");
+  const [wishlist, setWishlist] = useState([]);
   const [loading, setLoading] = useState(true); // ✅ Loading state
   const [search, setSearchValue] = useState(""); // ✅ Loading state
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const itemsPerPage = 8; // Number of products per page
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+  console.log(totalPages);
+  // Get products for the current page
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentProducts = filteredProducts.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
 
   // Fetch products with loading animation
   const getProducts = async () => {
     setLoading(true); // ✅ Start loading
     const baseUrl = "https://fakestoreapi.com/products";
     const url = category ? `${baseUrl}/category/${category}` : baseUrl;
+
     try {
       const response = await fetch(url);
       if (!response.ok) throw new Error("Failed to fetch data");
@@ -85,6 +98,26 @@ const App = () => {
     setCategory("");
   };
 
+  // Load wishlist from localStorage
+  useEffect(() => {
+    const storedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    setWishlist(storedWishlist);
+  }, []);
+
+  // Save wishlist to localStorage whenever it changes
+
+  // Toggle wishlist function with immediate localStorage update
+  const toggleWishlist = (productId) => {
+    setWishlist((prev) => {
+      const updatedWishlist = prev.includes(productId)
+        ? prev.filter((id) => id !== productId)
+        : [...prev, productId];
+
+      localStorage.setItem("wishlist", JSON.stringify(updatedWishlist)); // Save immediately
+      return updatedWishlist;
+    });
+  };
+
   return (
     <div className="min-h-screen mt-10 bg-gray-100 py-10 px-4">
       <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
@@ -125,9 +158,7 @@ const App = () => {
               category == item ? "bg-green-400" : "bg-green-100"
             } text-green-600 rounded-full shadow-sm border border-green-300 
                  hover:bg-green-300 hover:text-green-700 transition-all`}
-            onClick={() =>
-              category == item ? setCategory("") : setCategory(item)
-            }
+            onClick={() => setCategory(category === item ? "" : item)}
           >
             {item}
           </button>
@@ -144,6 +175,9 @@ const App = () => {
             <option value="lowToHigh">Price: Low to High</option>
             <option value="highToLow">Price: High to Low</option>
           </select>
+        </div>
+        <div className="flex items-center text-lg font-bold text-gray-800">
+          Wishlist: {wishlist.length}
         </div>
       </div>
 
@@ -167,11 +201,25 @@ const App = () => {
             🚫 No products found. Try a different search.
           </div>
         ) : (
-          filteredProducts.map((product) => (
+          currentProducts.map((product) => (
             <div
               key={product.id}
               className="bg-white shadow-md rounded-2xl overflow-hidden transition-transform transform hover:scale-105"
             >
+              {/* Wishlist Heart Icon */}
+              <button
+                onClick={() => toggleWishlist(product.id)}
+                className="absolute top-4 right-4"
+              >
+                <Heart
+                  size={24}
+                  className={`transition-all ${
+                    wishlist.includes(product.id)
+                      ? "fill-red-500 text-red-500"
+                      : "text-gray-400"
+                  }`}
+                />
+              </button>
               <img
                 src={product.image}
                 alt={product.title}
@@ -202,6 +250,42 @@ const App = () => {
           ))
         )}
       </div>
+      {/* Pagination Buttons */}
+      {filteredProducts.length > itemsPerPage && (
+        <div className="flex justify-center items-center mt-6 space-x-2">
+          <button
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+            className="px-4 py-2 text-sm font-semibold bg-gray-200 hover:bg-gray-300 disabled:bg-gray-100 rounded-md"
+          >
+            ◀ Prev
+          </button>
+
+          {[...Array(totalPages)].map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentPage(index + 1)}
+              className={`px-4 py-2 text-sm font-semibold rounded-md ${
+                currentPage === index + 1
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-200 hover:bg-gray-300"
+              }`}
+            >
+              {index + 1}
+            </button>
+          ))}
+
+          <button
+            className="px-4 py-2 text-sm font-semibold bg-gray-200 hover:bg-gray-300 disabled:bg-gray-100 rounded-md"
+            onClick={() =>
+              setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+            }
+            disabled={currentPage === totalPages}
+          >
+            Next ▶
+          </button>
+        </div>
+      )}
     </div>
   );
 };

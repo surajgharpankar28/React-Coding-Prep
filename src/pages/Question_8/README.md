@@ -13,7 +13,6 @@ Create a **Product Search & Filter Dashboard** that:
 
 ### **Requirements:**  
 1. **Core Features**:  
-   - Debounced search input (500ms delay).  
    - Dynamic URL updates for filters (e.g., `?category=electronics&sort=price_asc`).  
    - Wishlist button with counter in header.  
    - Loading skeleton screens during API calls.  
@@ -23,27 +22,6 @@ Create a **Product Search & Filter Dashboard** that:
    - Implement custom hooks for API fetching and URL synchronization.  
    - Avoid unnecessary re-renders (memoize components).  
    - Error handling for API failures.  
-
----
-
-### **Example API Response**:  
-```json
-[
-  {
-    "id": 1,
-    "title": "Product 1",
-    "price": 109.95,
-    "description": "Lorem ipsum...",
-    "category": "electronics",
-    "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-  }
-]
-```
-
----
-
-### **What to Submit**:  
-Your React component code (including API logic, filters, and styling).  
 
 ---
 
