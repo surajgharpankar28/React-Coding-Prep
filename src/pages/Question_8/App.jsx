@@ -178,12 +178,14 @@ const App = () => {
         </div>
 
         {/* Wishlist Display */}
-        <div className="relative flex items-center gap-3 ml-2">
-          <span className="text-lg font-bold text-gray-800">Wishlist:</span>
-          <span className="bg-red-500 text-white text-sm font-semibold px-3 py-1 rounded-full shadow-md">
-            {wishlist.length}
-          </span>
-        </div>
+        {wishlist.length > 0 && (
+          <div className="relative flex items-center gap-3 ml-2">
+            <span className="text-lg font-bold text-gray-800">Wishlist:</span>
+            <span className="bg-red-500 text-white text-sm font-semibold px-3 py-1 rounded-full shadow-md">
+              {wishlist.length}
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Product Grid / Loading State */}
