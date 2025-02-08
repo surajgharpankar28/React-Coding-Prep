@@ -164,7 +164,7 @@ const App = () => {
           </button>
         ))}
 
-        <div className="flex justify-end items-center gap-2 ">
+        <div className="flex justify-end items-center gap-2 ml-2">
           <span className="text-gray-700 font-medium">Sort by:</span>
           <select
             className="px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-white text-gray-700 
@@ -176,9 +176,16 @@ const App = () => {
             <option value="highToLow">Price: High to Low</option>
           </select>
         </div>
-        <div className="flex items-center text-lg font-bold text-gray-800">
-          Wishlist: {wishlist.length}
-        </div>
+
+        {/* Wishlist Display */}
+        {wishlist.length > 0 && (
+          <div className="relative flex items-center gap-3 ml-2">
+            <span className="text-lg font-bold text-gray-800">Wishlist:</span>
+            <span className="bg-red-500 text-white text-sm font-semibold px-3 py-1 rounded-full shadow-md">
+              {wishlist.length}
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Product Grid / Loading State */}
