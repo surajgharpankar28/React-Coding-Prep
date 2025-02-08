@@ -18,7 +18,7 @@ Create a **Product Search & Filter Dashboard** that:
    - Loading skeleton screens during API calls.  
 
 2. **Technical Requirements**:  
-   - Use React hooks (`useState`, `useEffect`, `useMemo`, `useCallback`).  
+   - Use React hooks (`useState`, `useEffect`).  
    - Implement custom hooks for API fetching and URL synchronization.  
    - Avoid unnecessary re-renders (memoize components).  
    - Error handling for API failures.  

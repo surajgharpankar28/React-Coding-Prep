@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { SearchIcon } from "lucide-react";
-import { Product } from "./Product";
+import { Product } from "./ProductCard";
 
 const App = () => {
   const [products, setProducts] = useState([]);
