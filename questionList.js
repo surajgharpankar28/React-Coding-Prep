@@ -6,6 +6,7 @@ const questionList = {
   5: "Shopping Cart Component",
   6: "Multi-Step Form Wizard",
   7: "Accordion Component",
+  8: "Product Search & Filter Dashboard",
 };
 
 export default questionList;
