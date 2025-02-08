@@ -1,6 +1,7 @@
 import { useState } from "react";
 import questionList from "../questionList";
 import { Link } from "react-router-dom";
+import { Github } from "lucide-react";
 
 const QUESTIONS_PER_PAGE = 5;
 
@@ -23,17 +24,27 @@ export default function QuestionList() {
       <div className="bg-white/10 rounded-2xl shadow-2xl p-6 sm:p-8 max-w-4xl w-full border border-white/10">
         <ul className="space-y-3">
           {paginatedQuestions.map(([id, title]) => (
-            <li key={id}>
+            <div
+              key={id}
+              className="flex justify-between w-full text-left px-4 sm:px-6 py-2 sm:py-3 bg-white/20 backdrop-blur-sm text-white font-semibold rounded-lg shadow-lg hover:bg-white/30 transition duration-300 transform hover:scale-105 hover:shadow-xl"
+            >
               <Link
                 target="_blank"
                 to={`/question-${id}-${title
                   .toLowerCase()
                   .replace(/\s+/g, "-")}`}
-                className="block w-full text-left px-4 sm:px-6 py-2 sm:py-3 bg-white/20 backdrop-blur-sm text-white font-semibold rounded-lg shadow-lg hover:bg-white/30 transition duration-300 transform hover:scale-105 hover:shadow-xl"
+                className=""
               >
                 {id} - {title}
               </Link>
-            </li>
+              <Link
+                target="_blank"
+                to={`https://github.com/surajgharpankar28/React-Coding-Prep/tree/main/src/pages/Question_${id}`}
+                className="flex hover:text-black"
+              >
+                Checkout on <Github className=" ml-2" />
+              </Link>
+            </div>
           ))}
         </ul>
       </div>
