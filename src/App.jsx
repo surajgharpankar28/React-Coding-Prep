@@ -26,23 +26,25 @@ export default function QuestionList() {
           {paginatedQuestions.map(([id, title]) => (
             <div
               key={id}
-              className="flex justify-between w-full text-left px-4 sm:px-6 py-2 sm:py-3 bg-white/20 backdrop-blur-sm text-white font-semibold rounded-lg shadow-lg hover:bg-white/30 transition duration-300 transform hover:scale-105 hover:shadow-xl"
+              className="flex justify-between items-center w-full px-4 sm:px-6 py-2 sm:py-3 bg-white/20 backdrop-blur-sm text-white font-semibold rounded-lg shadow-lg hover:bg-white/30 transition duration-300 transform hover:scale-105 hover:shadow-xl"
             >
               <Link
                 target="_blank"
                 to={`/question-${id}-${title
                   .toLowerCase()
                   .replace(/\s+/g, "-")}`}
-                className=""
+                className="truncate"
               >
                 {id} - {title}
               </Link>
+
               <Link
                 target="_blank"
                 to={`https://github.com/surajgharpankar28/React-Coding-Prep/tree/main/src/pages/Question_${id}`}
-                className="flex hover:text-black"
+                className="flex items-center gap-2 hover:text-black"
               >
-                Checkout on <Github className=" ml-2" />
+                <span>Check on GitHub</span>
+                <Github />
               </Link>
             </div>
           ))}
