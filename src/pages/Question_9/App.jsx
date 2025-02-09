@@ -12,32 +12,35 @@ const App = () => {
   const fetchData = async () => {
     if (cache[input]) {
       setResults(cache[input]);
-      console.log("from cache :", input);
       return;
     }
-    console.log("API Called : ", input);
+
     try {
       const response = await fetch(
-        "https://dummyjson.com/recipes/search?q=" + input
+        `https://dummyjson.com/recipes/search?q=${input}`
       );
       const data = await response.json();
-      setResults(data?.recipes);
-      setCache((prev) => ({ ...prev, [input]: data?.recipes }));
+
+      // Ensure we only keep recipes that actually contain the input
+      const filteredResults = data?.recipes?.filter((recipe) =>
+        recipe.name.toLowerCase().includes(input.toLowerCase())
+      );
+
+      setResults(filteredResults || []);
+      setCache((prev) => ({ ...prev, [input]: filteredResults || [] }));
     } catch (error) {
       console.error("Error fetching data:", error);
+      setResults([]);
     }
   };
 
   useEffect(() => {
     if (!input.trim()) {
       setResults([]);
-      return; // Don't fetch if input is empty
+      return;
     }
     const timer = setTimeout(fetchData, 300);
-
-    return () => {
-      clearTimeout(timer);
-    };
+    return () => clearTimeout(timer);
   }, [input]);
 
   // Handle keyboard navigation
