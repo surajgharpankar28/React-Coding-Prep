@@ -7,6 +7,7 @@ const questionList = {
   6: "Multi-Step Form Wizard",
   7: "Accordion Component",
   8: "Product Search & Filter Dashboard",
+  9: "Autocomplete Search Component",
 };
 
 export default questionList;

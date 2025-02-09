@@ -16,10 +16,8 @@ const App = () => {
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
   // Get products for the current page
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentProducts = filteredProducts.slice(
-    startIndex,
-    startIndex + itemsPerPage
-  );
+  const lastIndex = startIndex + itemsPerPage;
+  const currentProducts = filteredProducts.slice(startIndex, lastIndex);
 
   // Fetch products with loading animation
   const getProducts = async () => {

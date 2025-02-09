@@ -2,7 +2,7 @@
 **Problem Statement:**  
 Create an **Autocomplete Search Component** that:  
 1. Fetches suggestions from the [JSONPlaceholder API](https://jsonplaceholder.typicode.com/users) as the user types.  
-2. Implements debounced input (500ms delay) to minimize API calls.  
+2. Implements debounced input (300ms delay) to minimize API calls.  
 3. Displays a dropdown with suggestions, highlighting matches.  
 4. Supports keyboard navigation (↑/↓ arrows, Enter to select).  
 5. Caches API responses to avoid redundant requests.  
