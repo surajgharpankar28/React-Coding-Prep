@@ -1,0 +1,40 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.heading-container {
+  display: flex;
+  padding: 5px;
+}
+
+.heading {
+  cursor: pointer;
+  padding: 10px;
+  border-bottom: 2px solid transparent;
+}
+.heading.active {
+  border-bottom: 2px solid blue;
+  font-weight: bold;
+}
+
+.activeTab {
+  background-color: bisque;
+}
+
+.tab-body {
+  display: flex;
+  border: 1px solid black;
+  height: 200px;
+  padding: 5px;
+}
+
+.pagination {
+  display: flex;
+}
+
+.error {
+  color: red;
+  display: block;
+  font-size: small;
+}
