@@ -9,6 +9,7 @@ const questionList = {
   8: "Product Search & Filter Dashboard",
   9: "Autocomplete Search Component",
   10: "Multi-Tab Form Component",
+  11: "Calculator",
 };
 
 export default questionList;
