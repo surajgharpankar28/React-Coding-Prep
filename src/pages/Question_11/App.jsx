@@ -48,12 +48,14 @@ const App = () => {
         return;
       }
 
+      // Prevent division by zero
       if (/\/\s*0(?!\d)/.test(fullInput) || fullInput.includes("/(0)")) {
         setResult("Cannot divide by zero");
         return;
       }
 
-      if (/[+\-*/]$/.test(fullInput)) {
+      // Prevent expressions ending with an operator
+      if (/[\+\-\*\/]$/.test(fullInput)) {
         setResult("Invalid Expression");
         return;
       }
