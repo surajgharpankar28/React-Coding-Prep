@@ -1,0 +1,43 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 150px;
+  height: 150px;
+}
+.product-card {
+  border: 2px solid black;
+  padding: 5px;
+  margin: 5px;
+  height: 200px;
+  width: 150px;
+}
+.product-img {
+  width: 100px;
+  height: 100px;
+}
+
+.active {
+  background-color: aqua;
+}
+.pagination {
+  margin-top: 1rem;
+}
+.all-products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+}
+.title {
+  font-size: 1rem;
+}
+
+.pageNo active {
+  background-color: aqua;
+}

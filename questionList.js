@@ -10,6 +10,7 @@ const questionList = {
   9: "Autocomplete Search Component",
   10: "Multi-Tab Form Component",
   11: "Calculator",
+  12: "Pagination",
 };
 
 export default questionList;
