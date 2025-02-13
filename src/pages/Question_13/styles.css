@@ -1,0 +1,113 @@
+/* General Styling */
+
+body {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.App {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 15px;
+}
+
+/* Timer Display */
+.timer-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+  font-weight: bold;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.timer-box > div,
+.timer-box > span {
+  margin: 0.5rem;
+}
+
+/* Input Box */
+.input-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.input-box input {
+  height: 60px;
+  width: 60px;
+  border: none;
+  outline: none;
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.1);
+}
+
+.input-box input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Buttons */
+.timer-button {
+  height: 45px;
+  width: 120px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin: 10px;
+  background: linear-gradient(135deg, #a51eee, #009efd);
+  color: white;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.timer-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.timer-button:active {
+  transform: translateY(1px);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .timer-box {
+    font-size: 3rem;
+  }
+
+  .input-box input {
+    height: 50px;
+    width: 50px;
+    font-size: 20px;
+  }
+
+  .timer-button {
+    width: 100px;
+    height: 40px;
+    font-size: 14px;
+  }
+}
+
+.heading {
+  padding: 1rem;
+}
