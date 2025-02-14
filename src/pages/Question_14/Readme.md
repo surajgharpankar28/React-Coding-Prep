@@ -14,7 +14,6 @@ Design and implement a **dismissible modal overlay** that allows users to view a
 2. **Modal Display & Positioning**  
    - Clicking the **"Show Offer"** button should display a **modal overlay**.  
    - The modal should have:  
-     - A **semi-transparent grey background** overlay.  
      - A **centered offer message** inside a styled box.  
      - A **close button ("X")** at the top-right.  
      - An **"Accept Offer"** button.  
@@ -22,7 +21,7 @@ Design and implement a **dismissible modal overlay** that allows users to view a
 
 3. **Modal Dismissal Conditions**  
    - The modal should be dismissed when:  
-     - The user clicks anywhere on the **grey overlay**.  
+     - The user clicks anywhere outside the **modal**.  
      - The user clicks the **"X" close button**.  
    - If dismissed, the UI should return to showing just the **"Show Offer"** button.  
 

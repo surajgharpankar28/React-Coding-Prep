@@ -8,7 +8,7 @@ const Modal = ({ handleClose, handleAccept }) => {
 
   return (
     <div className="modal-overlay" onClick={handleOutsideClick}>
-      <div className="modal-content">
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <button className="close-btn" onClick={handleClose}>
           ✖
         </button>
