@@ -13,7 +13,7 @@ const Modal = ({ handleClose, handleAccept }) => {
           ✖
         </button>
         <p className="modal-text">
-          Click the button below to accept our amazing offer!
+          Limited-time offer! Tap the button to claim now.{" "}
         </p>
         <button className="accept-btn" onClick={handleAccept}>
           Accept Offer
