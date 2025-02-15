@@ -13,6 +13,7 @@ const questionList = {
   12: "Pagination",
   13: "Countdown Timer",
   14: "Dismissible Modal Overlay",
+  15: "Mortgage calculator",
 };
 
 export default questionList;
