@@ -14,6 +14,7 @@ const questionList = {
   13: "Countdown Timer",
   14: "Dismissible Modal Overlay",
   15: "Mortgage calculator",
+  16: "Carousel Component",
 };
 
 export default questionList;
