@@ -4,11 +4,15 @@ export default function Header() {
   return (
     <header className="w-full bg-gradient-to-r from-blue-600 to-purple-700 shadow-lg border-b border-white/20 py-4 px-4 sm:px-8 flex items-center justify-between fixed top-0 left-0 z-50">
       {/* Logo / Title */}
-      <Link to="/">
-        <h1 className="text-lg sm:text-xl font-bold text-white tracking-wide">
-          React Coding Preparation
-        </h1>
-      </Link>
+      <div className=" justify-center align-middle items-center">
+        <Link to="/" className="flex justify-center align-middle items-center">
+          <img src="./favicon.png" className="h-10 mr-2" alt="" />
+          <h1 className="text-lg sm:text-xl font-bold text-white tracking-wide">
+            React Coding Preparation
+          </h1>
+        </Link>
+      </div>
+
       {/* Navigation */}
       <nav>
         <ul className="flex space-x-4 sm:space-x-6">
