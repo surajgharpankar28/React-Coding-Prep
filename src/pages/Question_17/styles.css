@@ -1,0 +1,87 @@
+.OTPApp {
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensures it covers the full viewport */
+  background-color: #f8f9fa; /* Optional: Light background for contrast */
+}
+
+.OTPAppContainer {
+  border: 2px solid #181bc5; /* Green border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Add padding inside the container */
+  background-color: #f9f9f9; /* Light background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  margin: 20px; /* Space around the container */
+  transition: all 0.3s ease; /* Smooth transition effect on hover */
+}
+
+.OTPAppContainer:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+  border-color: #384d8e; /* Darker green border on hover */
+}
+
+.OTPInputBox {
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  border: 1px solid #384d8e;
+}
+.OTPInputBox:focus {
+  outline-color: blue;
+  text-decoration: none;
+}
+
+.OTPsubmitBtn {
+  height: 40px;
+  width: 100px;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: purple;
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 15px;
+}
+
+.OTPsubmitBtnDiv {
+  margin-top: 1rem;
+}
+
+.OTPInputMissed {
+  border: 2px solid red;
+}
+
+.OTPSuccess {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: green;
+}
+
+.OTPFailed {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: red;
+}
+
+.otp-note {
+  background-color: #fff3cd; /* Light yellow background */
+  border-left: 4px solid #ffc107; /* Yellow left border */
+  color: #856404; /* Dark yellow text */
+  padding: 0px 15px;
+  border-radius: 5px;
+  font-weight: 500;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  display: inline-block; /* Adjust width to fit content */
+  margin-bottom: 10px;
+  margin-top: 1rem;
+}
+
+.otp-note span {
+  font-weight: bold;
+}
