@@ -1,0 +1,160 @@
+[
+  {
+    "id": "1",
+    "name": "public",
+    "isFolder": true,
+    "children": [
+      {
+        "id": "2",
+        "name": "index.html",
+        "isFolder": false
+      },
+      {
+        "id": "3",
+        "name": "favicon.ico",
+        "isFolder": false
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "name": "src",
+    "isFolder": true,
+    "children": [
+      {
+        "id": "5",
+        "name": "assets",
+        "isFolder": true,
+        "children": [
+          {
+            "id": "6",
+            "name": "logo.png",
+            "isFolder": false
+          },
+          {
+            "id": "7",
+            "name": "styles.css",
+            "isFolder": false
+          },
+          {
+            "id": "26",
+            "name": "images",
+            "isFolder": true,
+            "children": [
+              {
+                "id": "27",
+                "name": "nature.png",
+                "isFolder": false
+              },
+              {
+                "id": "28",
+                "name": "mountain.css",
+                "isFolder": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "8",
+        "name": "components",
+        "isFolder": true,
+        "children": [
+          {
+            "id": "9",
+            "name": "Navbar.js",
+            "isFolder": false
+          },
+          {
+            "id": "10",
+            "name": "Footer.js",
+            "isFolder": false
+          }
+        ]
+      },
+      {
+        "id": "11",
+        "name": "pages",
+        "isFolder": true,
+        "children": [
+          {
+            "id": "12",
+            "name": "Home.js",
+            "isFolder": false
+          },
+          {
+            "id": "13",
+            "name": "About.js",
+            "isFolder": false
+          },
+          {
+            "id": "14",
+            "name": "Contact.js",
+            "isFolder": false
+          }
+        ]
+      },
+      {
+        "id": "15",
+        "name": "hooks",
+        "isFolder": true,
+        "children": [
+          {
+            "id": "16",
+            "name": "useFetch.js",
+            "isFolder": false
+          }
+        ]
+      },
+      {
+        "id": "17",
+        "name": "context",
+        "isFolder": true,
+        "children": [
+          {
+            "id": "18",
+            "name": "ThemeContext.js",
+            "isFolder": false
+          }
+        ]
+      },
+      {
+        "id": "19",
+        "name": "utils",
+        "isFolder": true,
+        "children": [
+          {
+            "id": "20",
+            "name": "helpers.js",
+            "isFolder": false
+          }
+        ]
+      },
+      {
+        "id": "21",
+        "name": "App.js",
+        "isFolder": false
+      },
+      {
+        "id": "22",
+        "name": "index.js",
+        "isFolder": false
+      }
+    ]
+  },
+  {
+    "id": "23",
+    "name": ".gitignore",
+    "isFolder": false
+  },
+  {
+    "id": "24",
+    "name": "README.md",
+    "isFolder": false
+  },
+  {
+    "id": "25",
+    "name": "package.json",
+    "isFolder": false
+  }
+]
