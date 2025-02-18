@@ -16,6 +16,7 @@ const questionList = {
   15: "Mortgage calculator",
   16: "Carousel Component",
   17: "Two-factor Code Input",
+  18: "File Folder Explorer",
 };
 
 export default questionList;

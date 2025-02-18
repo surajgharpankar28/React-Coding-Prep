@@ -1,0 +1,33 @@
+.FileApp {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.fileContainer {
+  text-align: left;
+  padding-left: 1rem;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.isFolder {
+  font-weight: bold;
+  color: #2d3a3b;
+  font-size: 16px;
+}
+
+.fileSpan {
+  cursor: pointer;
+  margin-right: 5px;
+  color: #0077cc;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+h1 {
+  color: #333;
+  font-size: 2rem;
+  margin-top: 20px;
+}
