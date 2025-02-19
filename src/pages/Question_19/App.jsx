@@ -40,9 +40,9 @@ export default function App() {
           {rating > 0 && (
             <div>
               <h2>{rating} / 5 Stars</h2>
-              <p className="feedback">{getFeedbackMessage(rating)}</p>
+              <p className="starfeedback">{getFeedbackMessage(rating)}</p>
               <button
-                className="resetBtn"
+                className="StarResetBtn"
                 onClick={() => {
                   setRating(0);
                   setHover(0);

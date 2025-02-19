@@ -33,13 +33,13 @@
   transform: scale(1.2); /* Slight zoom effect on hover */
 }
 
-.feedback {
+.starfeedback {
   font-size: 1.2rem;
   font-weight: bold;
   margin-top: 10px;
 }
 
-.resetBtn {
+.StarResetBtn {
   margin-top: 10px;
   padding: 5px 15px;
   font-size: 1rem;
@@ -51,6 +51,6 @@
   transition: 0.3s;
 }
 
-.resetBtn:hover {
+.StarResetBtn:hover {
   background-color: darkred;
 }
