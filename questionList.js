@@ -17,6 +17,7 @@ const questionList = {
   16: "Carousel Component",
   17: "Two-factor Code Input",
   18: "File Folder Explorer",
+  19: "Star Rating Component",
 };
 
 export default questionList;

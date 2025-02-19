@@ -1,0 +1,56 @@
+.StarApp {
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  margin-top: 16rem;
+}
+
+.starBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.star {
+  font-size: 4rem;
+  color: lightgray;
+  margin: 5px;
+}
+
+.star.on {
+  color: gold;
+}
+
+.star.off {
+  color: lightgray;
+}
+
+.starBtn:hover {
+  transform: scale(1.2); /* Slight zoom effect on hover */
+}
+
+.feedback {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.resetBtn {
+  margin-top: 10px;
+  padding: 5px 15px;
+  font-size: 1rem;
+  border: none;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.resetBtn:hover {
+  background-color: darkred;
+}
