@@ -18,6 +18,7 @@ const questionList = {
   17: "Two-factor Code Input",
   18: "File Folder Explorer",
   19: "Star Rating Component",
+  20: "Transfer List Component",
 };
 
 export default questionList;
