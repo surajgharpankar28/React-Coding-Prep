@@ -19,6 +19,7 @@ const questionList = {
   18: "File Folder Explorer",
   19: "Star Rating Component",
   20: "Transfer List Component",
+  21: "Progress Bar Component",
 };
 
 export default questionList;
