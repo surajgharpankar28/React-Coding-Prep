@@ -1,0 +1,23 @@
+.ProgressApp {
+    font-family: sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .ProgressbarOuter {
+    border: 1px solid black;
+    border-radius: 1rem;
+    overflow: hidden;
+    margin: 5px;
+  }
+  
+  .ProgressbarInner {
+    border-radius: 10px;
+    background-color: rgb(19, 181, 19);
+    padding: 5px;
+    text-align: right;
+    transition: 1s ease-in;
+  }
+  
