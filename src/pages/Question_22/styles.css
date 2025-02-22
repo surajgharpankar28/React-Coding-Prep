@@ -1,0 +1,89 @@
+.ttt-app {
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.ttt-title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.ttt-game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.ttt-box {
+  width: 100px;
+  height: 100px;
+  background-color: #969191;
+  border: 3px solid #6a6868;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  color: white;
+  border-radius: 10px;
+}
+
+.ttt-box:hover {
+  background-color: #505050;
+  transform: scale(1.05);
+}
+
+.ttt-X {
+  color: #ff4c4c;
+}
+
+.ttt-O {
+  color: #4c9aff;
+}
+
+.ttt-game-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ttt-reset-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.ttt-reset-btn:hover {
+  background-color: #0056b3;
+}
+
+.ttt-status,
+.ttt-winner {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.ttt-winner {
+  color: #28a745;
+}
