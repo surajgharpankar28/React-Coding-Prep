@@ -20,7 +20,8 @@ const questionList = {
   19: "Star Rating Component",
   20: "Transfer List Component",
   21: "Progress Bar Component",
-  22: "Tic Tac Toe"
+  22: "Tic Tac Toe",
+  23: "Memory Game",
 };
 
 export default questionList;

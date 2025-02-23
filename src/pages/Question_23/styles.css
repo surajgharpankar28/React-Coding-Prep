@@ -1,0 +1,95 @@
+.MemoryGameApp {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  justify-content: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.start-btn {
+  background-color: #007bff;
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.start-btn:hover {
+  background-color: #0056b3;
+}
+
+.memoryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  grid-template-rows: repeat(4, 80px);
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.memoryCard {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 1.5rem;
+}
+
+.memoryCard:hover {
+  background-color: #007bff;
+  color: white;
+  transform: scale(1.1);
+}
+
+.showMemoryCard {
+  font-size: 1.5rem;
+  color: black;
+  background-color: white;
+}
+
+.hideMemoryCard {
+  font-size: 0;
+  background-color: #007bff;
+}
+
+.removeMemoryCard {
+  visibility: hidden;
+}
+
+.quit-btn {
+  background-color: red;
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+
+.winwin {
+  font-size: large;
+  font-weight: bold;
+  color: green;
+  margin-bottom: 10px;
+}
