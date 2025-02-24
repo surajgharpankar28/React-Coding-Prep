@@ -22,6 +22,7 @@ const questionList = {
   21: "Progress Bar Component",
   22: "Tic Tac Toe",
   23: "Memory Game",
+  24: "HackerNews Job Board",
 };
 
 export default questionList;
