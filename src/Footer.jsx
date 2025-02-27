@@ -1,5 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaXTwitter, FaEnvelope } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -29,7 +28,7 @@ const Footer = () => {
                 className="text-white hover:text-yellow-400 transition-colors"
                 aria-label="GitHub"
               >
-                <Github size={24} />
+                <FaGithub size={24} />
               </a>
               <a
                 href="https://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=surajgharpankar"
@@ -38,7 +37,7 @@ const Footer = () => {
                 className="text-white hover:text-yellow-400 transition-colors"
                 aria-label="LinkedIn"
               >
-                <Linkedin size={24} />
+                <FaLinkedin size={24} />
               </a>
               <a
                 href="https://x.com/surajgharpankar"
@@ -54,7 +53,7 @@ const Footer = () => {
                 className="text-white hover:text-yellow-400 transition-colors"
                 aria-label="Email"
               >
-                <Mail size={24} />
+                <FaEnvelope size={24} />
               </a>
             </div>
           </div>
