@@ -27,6 +27,15 @@ export default function Header() {
           <li>
             <Link
               target="_blank"
+              to="https://www.linkedin.com/in/surajgharpankar/"
+              className="text-white/80 hover:text-white transition duration-300 font-medium text-sm sm:text-base"
+            >
+              Linkedin
+            </Link>
+          </li>
+          <li>
+            <Link
+              target="_blank"
               to="https://github.com/surajgharpankar28/React-Coding-Prep.git"
               className="text-white/80 hover:text-white transition duration-300 font-medium text-sm sm:text-base"
             >
