@@ -44,7 +44,7 @@ export default function QuestionList() {
                 </div>
 
                 {/* Buttons */}
-                <div className="flex justify-between items-center mt-4 text-sm">
+                <div className="flex justify-between items-center mt-4 text-sm gap-2">
                   {/* Explore Button */}
                   <Link
                     target="_blank"
