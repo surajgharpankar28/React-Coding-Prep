@@ -25,6 +25,7 @@ const questionList = {
   24: "HackerNews Job Board",
   25: "Nested Comments",
   26: "Crypto converter",
+  27: "Bar Chart Component",
 };
 
 export default questionList;
