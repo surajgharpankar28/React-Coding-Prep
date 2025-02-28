@@ -26,6 +26,7 @@ const questionList = {
   25: "Nested Comments",
   26: "Crypto converter",
   27: "Bar Chart Component",
+  28: "Dark-Light Mode",
 };
 
 export default questionList;
